@@ -76,7 +76,8 @@ DatabaseGrid.prototype.initializeGrid = function(grid) {
 // render for the action column
 	grid.setCellRenderer("action", new CellRenderer({ 
 		render: function(cell, id) {                 
-		      cell.innerHTML+= "<i onclick=\"datagrid.deleteRow("+id+");\" class='fa fa-trash-o red' ></i>";
+		      cell.innerHTML+= '<a href="setroom.php?id='+id+'">Set Room</a>';
+		      
 		}
 	})); 
 

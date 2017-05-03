@@ -1,0 +1,233 @@
+Training Set -> Macihne learning algorithm -> model
+
+y = mx + b 
+
+_____________________________________________________________________________________
+K-Nearest Neighbors (KNN)
+
+Not every machine learning method builds a model
+K-NN uses similarity between examples
+Assumes that two similar examples have same label
+Assumes all examles (instances) are points in the d dimensional space R^d
+Uses euclidean distance for nearest neighbor
+Given two examples
+
+d(x,y) = sqrt(sum(1:d)(x-y)^2)
+
+Training Algorithm
+
+Classification Algorithm
+let N(x) be set of K-nearest neighbors
+y = sign(sum(N(x):)(y))
+
+Works if data size is small
+
+Example: Credit Card Rating
+
+Age=48, Loan = 142,000
+
+It checks the nearest K neighbors, 2 default, 2 non default
+
+
+++
+Simple to implement
+works well in practice
+No model
+Easy to extend
+
+--
+Eats up a lot of space
+Slowwwwwwwwwwwwwwwwwww
+The curse of dimension (shift) 
+
+_____________________________________________________________________________________
+
+Training and Testing
+
+Data Set
+Trainig - 80%
+Test Set - 20%
+
+We calculate E(train) = sum(loss(y,f(x)))
+Generalization: Can do well on new inputs
+Underfitting: Not enough low error value on training
+Overfitting: Gap between training error and test error is too big (can only solve what's in the book)
+
+
+Structural Risk Minimization: 
+High bias
+
+_____________________________________________________________________________________
+
+K-Fold Cross Validation
+
+Method for estimating test error using test data
+Step 1: Randomly slipt D in subsets
+Step 2: ???
+Step 3: Average error
+
+_____________________________________________________________________________________
+Confusion Matrix - after K-Fold
+
+Predicted and Actual Label
+++ = True Positive
+-+ = False Negative
++- = False Positive
+-- = True Negative
+
+_____________________________________________________________________________________
+Evaluation Matrix
+
+Accuracy (TP+TN)/(TP+TN+FP+FN) (correct predictions)
+Precision TP/(TP+FP) (positive predictions that are correct)
+Sensitivity TP/(TP+FN) (Positive cases that were predicted as positive)
+Specificity TN/(TN+FP) (Negative cases that were predicted as neegative)
+
+_____________________________________________________________________________________
+
+Hayes Rule
+
+Conditional Probability
+
+P(A) = student is absent
+P(B) = it is wednesday
+The probability that it is Wednesday and that a student is absent is 0.03. Since
+there are 5 school days, that probability that it is Wednesday is 0.2
+_____________________________________________________________________________________
+Bayes Theorem
+
+P(h) = prior
+P(D) is evidence
+P(h|D) is posterior
+P(D|h) is likelihood
+_____________________________________________________________________________________
+
+Choosing Hypothesis
+Generally want the most probable hypothesis given the training data
+Maximum a posterior hypothesis h map
+_____________________________________________________________________________________
+
+Cancer lancer
+
+P(Cancer) = 0.008
+P(+|Cancer) = 0.98
+(+|-cancer) = 0.03
+
+P(-cancer) = 0.992
+_____________________________________________________________________________________
+
+Product Rule
+Sum Rule
+Theorem of Total Probability
+_____________________________________________________________________________________
+
+Relation to Concept Learning
+
+
+Consider our usual learning task.
+Instance X, hypothesis space H, training example D
+cONSIDER fIND s. wHAT WOULD BAYES RULE PRODUCE as map hypothesis
+does find-s
+_____________________________________________________________________________________
+Evolution of Posterior Probabilities
+
+P(h) low flat
+P(h|D1) taller thinner
+P(h|D1, D2) tallest thinnest
+
+Characterising Learning by Equivalent Map Learners
+
+_____________________________________________________________________________________
+
+Naive Bayes Classifier
+
+Probabilistic Model
+Practical
+used for natural language
+Naive because of independence assumpition
+Simple and strong comparable to decision trees and neural networks
+
+Setting
+Training data (x,y) x is feature vector, y is discrete label
+Ex: Document Classification 
+
+Checks presence of certain words
+We want to predict if it’s spam
+
+Hayes Rule to obain
+ynew = argmax p(a1…ad|y) * P(y) / p(a1…ad)
+
+p(y0 we count frequency of each label y
+P9a1…ad) is hard to compute
+
+Naive Bayes Classifier
+
+Assumption that they’re independent
+
+ynew = argmax p(y) II P(a|y)
+
+Learning: based on frequency counts in the dataset:
+1. Estimate all P(y)
+2. Estimate all p(a|y)
+
+Classification: For a new example use
+ynew = argmax p(y) II p(a|y)
+_____________________________________________________________________________________
+
+
+
+ynew = argmax(py)*p(masters|y) * p(UX|y) * p(java|y) * p(True|y)
+
+p(yes) = 8/14 = 0.572 (count the table)
+p(no) = 6/14
+
+p(masters|yes) = 4/8, p(masters|yes) 1/6
+P(ux|yes) = 2/8, P(UX|NO) 2/6
+
+_____________________________________________________________________________________
+
+Example: Play Tennis
+
+_____________________________________________________________________________________
+
+Naive Bayes issues
+
+What if none of the training instances with target value v have attribute value a?
+
+Typical Solution is Bayesian Estimate
+
+P(a|v) <- nc+mp / n+ m (we add mp and m)
+m is weight given to prior
+_____________________________________________________________________________________
+Application: Text Classification
+
+Naive Bayes is a linear classifier
+
+_____________________________________________________________________________________
+_____________________________________________________________________________________
+_____________________________________________________________________________________
+
+Unsupervised Learning
+
+No teacher signal
+
+Training data: x
+
+Clustering and Segmentation
+
+Example find clusters in population and fruits and clots, etc
+
+Clustering: K-Means pros and cons
++Easy to implement
+-Need to know k
+-Curse of Dimensional Shift
+
+Example:
+4 Types of medicine with pH and weight index.
+
+Quiz on K-means clustering
+LE3: May 12
+Finals
+MP
+
+11:59pm May 10
